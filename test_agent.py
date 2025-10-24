@@ -111,7 +111,7 @@ def main():
             history_string = format_chat_history(chat_history)
 
             #Calls the agent executor with the user input and chat history.
-            response = agent_executor.run(input=user_input, chat_history=history_string)
+            response = agent_executor.invoke({"input": user_input, "chat_history":history_string})
 
             output = response['output']
 
