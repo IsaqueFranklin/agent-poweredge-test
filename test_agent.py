@@ -7,7 +7,7 @@ from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain.agents import create_react_agent
 
 #Local llm config => poiting to gemma 4b.
-llm = ChatOllama(model="gemma:4b")
+llm = ChatOllama(model="gemma3:4b")
 
 #Defining the tools, in this case only the DuckDuckGo search.
 search_tool = DuckDuckGoSearchRun()
