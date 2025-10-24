@@ -66,7 +66,7 @@ Pergunta: {input}
 Raciocínio:{agent_scratchpad}
 """
 
-prompt = ChatPromptTemplate.from_template(prompt_template)
+prompt = ChatPromptTemplate.from_template(react_prompt_template)
 
 #Creating the agent by defining the prompt and the tools it can use.
 agent = create_react_agent(llm, tools, prompt=prompt)
