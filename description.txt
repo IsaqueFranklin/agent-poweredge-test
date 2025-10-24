@@ -1,0 +1,11 @@
+Recently langchain was divided into multiple module packages.
+
+- langchain-core: The heart of the framework. It defines the fundamental interfaces — such as language models, “runnables,” and message schemas like HumanMessage and AIMessage.
+- langchain-community: Contains all community and third-party integrations (for example: OpenAI, Ollama, MongoDB, etc.). This is where integrations like ChatOllama live, as well as vector store integrations such as Chroma, FAISS, and MongoDB Atlas Vector Search.
+- langchain: The main orchestration library. It imports langchain-core and provides higher-level abstractions and components, including:
+    * Models (LLMs / ChatModels) – Interfaces for communicating with models (e.g., ChatOllama).
+    * Prompts – Templates for creating structured instructions sent to the model (e.g., ChatPromptTemplate).
+    * Tools – Functions or utilities that an agent can choose to use (e.g., DuckDuckGoSearchRun).
+    * Agents – The decision-making brain that coordinates LLMs and tools.
+    * Chains – Simple sequential workflows (for example, a prompt + a model is the simplest chain).
+- langchain-partners (e.g., langchain-openai, langchain-google-genai): Provider-specific packages for major AI platforms and services.
