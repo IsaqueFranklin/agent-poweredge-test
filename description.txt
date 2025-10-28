@@ -13,3 +13,12 @@ Recently langchain was divided into multiple module packages.
 Why Gunicorn is not right for RAG prod workers?
 It will create one copy of my rag for each worker, which will make my ram or vram explode. Each Gunicorn worker is an exact copy of my api+rag.
 The services need to be separated. Very few workers for the RAG and many workers for the API.
+
+The Correct Flow
+- User sends a request to yourapi.com/query.
+- Nginx (Waiter) delivers the request to Gunicorn (Manager).
+- Gunicorn hands it off to a lightweight API Worker (Chef).
+- The API Worker (Chef) realizes it needs the RAG. It sends an internal request to http://localhost:5001/generate (the Central Bakery).
+- The RAG Service (Baker at the Industrial Oven) processes the request and returns the response.
+- The API Worker (Chef) receives the response, finishes the dish, and returns it to Gunicorn.
+- Gunicorn returns it to Nginx, which delivers it to the User.
