@@ -9,3 +9,7 @@ Recently langchain was divided into multiple module packages.
     * Agents – The decision-making brain that coordinates LLMs and tools.
     * Chains – Simple sequential workflows (for example, a prompt + a model is the simplest chain).
 - langchain-partners (e.g., langchain-openai, langchain-google-genai): Provider-specific packages for major AI platforms and services.
+
+Why Gunicorn is not right for RAG prod workers?
+It will create one copy of my rag for each worker, which will make my ram or vram explode. Each Gunicorn worker is an exact copy of my api+rag.
+The services need to be separated. Very few workers for the RAG and many workers for the API.
