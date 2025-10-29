@@ -11,7 +11,7 @@ llm = ChatOllama(model="gemma3:4b")
 
 #Defining the tools, in this case only the DuckDuckGo search.
 search_tool = DuckDuckGoSearchRun()
-tools = []
+tools = [] #tools = [search_tool]
 
 #Creating the agent prompt. This is what tells the agent how it should behave, what tools it has, and how to use them.
 #We use special placeholders that LangChain recognizes, such as: input, the user’s question, and agent_scratchpad, the short-term memory where the agent notes the steps it has already taken.
